@@ -14,16 +14,8 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
+      - name: Run Cypress tests
+        uses: cypress-io/github-action@v6
         with:
-          node-version: '18'
-
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Fix Cypress binary permissions
-        run: chmod +x ./node_modules/.bin/cypress
-
-      - name: Run Cypress Tests
-        run: npx cypress run
+          build: npm ci
+          start: ''
