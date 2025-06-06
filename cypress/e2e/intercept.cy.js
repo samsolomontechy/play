@@ -5,11 +5,14 @@ describe('OrangeHRM GET request intercept example', () => {
     // Intercept the API request
     cy.intercept('GET', '/web/index.php/api/v2/admin/users?limit=50&offset=0&sortField=u.userName&sortOrder=ASC').as('getEmploymentStatuses');
 
+
+
     // Visit the login page
     cy.visit(`${url}`);
 
     // Login
     cy.get('input[name="username"]').type('Admin');
+    cy.get('input[name="password"]').type('admin123');
     cy.get('input[name="password"]').type('admin123');
     cy.get('button[type="submit"]').click();
 
