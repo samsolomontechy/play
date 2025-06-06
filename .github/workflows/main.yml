@@ -20,9 +20,10 @@ jobs:
           node-version: '18'
 
       - name: Install dependencies
-        run: npm install
+        run: npm ci
+
+      - name: Fix Cypress binary permissions
+        run: chmod +x ./node_modules/.bin/cypress
 
       - name: Run Cypress Tests
         run: npx cypress run
-
-     
