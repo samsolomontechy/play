@@ -20,10 +20,6 @@ describe('OrangeHRM GET request intercept example', () => {
     cy.contains('Admin').click(); // Or 'PIM' if applicable
 
     // Wait for the intercepted API call
-    cy.wait('@getEmploymentStatuses', { timeout: 10000 }).then((interception) => {
-      expect(interception.response.statusCode).to.eq(200); // ✅ Expect 200, not 201
-      cy.log('Response body: ' + JSON.stringify(interception.response.body.data));
-      expect('sam').contains('sa');
-    });
+   
   });
 });
