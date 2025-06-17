@@ -10,7 +10,22 @@
 //
 //
 // -- This is a parent command --
-// Cypress.Commands.add('login', (email, password) => { ... })
+/// <reference types="cypress" />
+
+/**
+ * Custom login command
+ * @param {string} usernameLocator - Selector for username input
+ * @param {string} username - Username text
+ * @param {string} passwordLocator - Selector for password input
+ * @param {string} password - Password text
+ * @param {string} submitLocator - Selector for submit button
+ */
+Cypress.Commands.add('login', (usernameLocator, username, passwordLocator, password, submitLocator) => {
+  cy.get(usernameLocator).type(username);
+  cy.get(passwordLocator).type(password);
+  cy.get(submitLocator).click();
+});
+
 //
 //
 // -- This is a child command --
